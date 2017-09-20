@@ -1,0 +1,408 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"to_",
+				"to_md5_keyboard"
+			],
+			[
+				"text",
+				"text_b64"
+			],
+			[
+				"caps",
+				"caps_hamdler"
+			],
+			[
+				"tex",
+				"text_caps"
+			],
+			[
+				"me",
+				"message"
+			],
+			[
+				"sq",
+				"square"
+			],
+			[
+				"wh",
+				"whoami"
+			],
+			[
+				"w",
+				"width"
+			],
+			[
+				"i",
+				"i"
+			],
+			[
+				"l",
+				"l_square"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "main.py",
+			"settings":
+			{
+				"buffer_size": 0,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/vadimsmirnov/Documents/4PKS10/4PKS10/Daily-Current Week.csv",
+			"settings":
+			{
+				"buffer_size": 448,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/vadimsmirnov/Documents/4PKS10/4PKS10/reader.py",
+			"settings":
+			{
+				"buffer_size": 203,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/Python/Python.sublime-build",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				],
+				[
+					"Packages/SublimeREPL/sublimerepl_build_system_hack.sublime-build",
+					""
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 354.0,
+		"last_filter": "linre",
+		"selected_items":
+		[
+			[
+				"linre",
+				"SublimeLinter: Disable Linting"
+			],
+			[
+				"rem",
+				"Package Control: Remove Package"
+			],
+			[
+				"remo",
+				"Package Control: Remove Channel"
+			],
+			[
+				"MATE",
+				"Material Theme: Configuration"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"python",
+				"Build With: Python"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 480.0
+	},
+	"console":
+	{
+		"height": 143.0,
+		"history":
+		[
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/vadimsmirnov/Library/Application Support/Sublime Text 3/Packages/Jedi - Python autocompletion/sublime_jedi.sublime-settings",
+		"/Users/vadimsmirnov/Documents/projects/telebot/main.py",
+		"/Users/vadimsmirnov/Documents/projects/python/udemyFuncPy/map.py",
+		"/Users/vadimsmirnov/Documents/4PKS10/Daily-Current Week.csv",
+		"/Users/vadimsmirnov/Documents/projects/python/kivy/helloKivy/main.py",
+		"/Users/vadimsmirnov/Documents/projects/python/dz/dz2.py",
+		"/Users/vadimsmirnov/Documents/projects/python/dz/dz2_2.py",
+		"/Users/vadimsmirnov/Documents/projects/python/kivy/helloKivy/mail.py",
+		"/Users/vadimsmirnov/Library/Application Support/Sublime Text 3/Packages/SublimeLinter/SublimeLinter.sublime-settings",
+		"/Users/vadimsmirnov/Downloads/[Udemy] Функциональное программирование на Python 3 (2017)/Р1 Введение в map, filter и reduce/003.txt",
+		"/Users/vadimsmirnov/Downloads/[Udemy] Функциональное программирование на Python 3 (2017)/Р1 Введение в map, filter и reduce/004.txt",
+		"/Users/vadimsmirnov/Documents/projects/python/udemyFuncPy/reduce.py",
+		"/Users/vadimsmirnov/Downloads/Bitslerscript.txt",
+		"/Users/vadimsmirnov/Library/Application Support/Sublime Text 3/Packages/User/AutoPep8.sublime-settings",
+		"/Users/vadimsmirnov/Library/Application Support/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings",
+		"/Users/vadimsmirnov/Library/Application Support/Sublime Text 3/Packages/User/sublime_jedi.sublime-settings",
+		"/Users/vadimsmirnov/Documents/projects/caesarcrypt.py",
+		"/Users/vadimsmirnov/Downloads/[Udemy] Функциональное программирование на Python 3 (2017)/Р1 Введение в map, filter и reduce/002.txt",
+		"/Users/vadimsmirnov/Documents/projects/python/udemyFuncPy/filter.py",
+		"/Users/vadimsmirnov/Documents/projects/caesardecrypt.py",
+		"/Users/vadimsmirnov/Library/Application Support/Sublime Text 3/Packages/User/Anaconda.sublime-settings",
+		"/Users/vadimsmirnov/Documents/projects/1.py",
+		"/Users/vadimsmirnov/.zshrc",
+		"/Users/vadimsmirnov/.hyper.js",
+		"/Users/vadimsmirnov/Downloads/starterkit2/setup.bat",
+		"/Users/vadimsmirnov/Downloads/starterkit2/start.bat",
+		"/Users/vadimsmirnov/dotfiles/zshrc",
+		"/Users/vadimsmirnov/dotfiles/zsh/configs/editor.zsh",
+		"/Users/vadimsmirnov/dotfiles/zsh/configs/options.zsh",
+		"/Users/vadimsmirnov/dotfiles/zsh/configs/prompt.zsh",
+		"/Users/vadimsmirnov/dotfiles/zsh/configs/color.zsh"
+	],
+	"find":
+	{
+		"height": 32.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"theme"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "main.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": false,
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/Users/vadimsmirnov/Documents/4PKS10/4PKS10/Daily-Current Week.csv",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 448,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/Users/vadimsmirnov/Documents/4PKS10/4PKS10/reader.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 203,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								199,
+								199
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": false,
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 32.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 149.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "telepot_cfuv.sublime-project",
+	"replace":
+	{
+		"height": 60.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
