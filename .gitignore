@@ -39,3 +39,7 @@ Thumbs.db
 #Other
 *.csv
 *.sublime*
+
+img/
+
+test\.png
