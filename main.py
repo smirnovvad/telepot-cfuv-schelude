@@ -22,7 +22,7 @@ async def on_chat_message(msg):
     ], resize_keyboard=True)
     if content_type != 'text':
         return
-    if msg['text'] in config.kurs4.keys():
+    if msg['text'].upper() in config.kurs4.keys():
         with open('Расписание (4 курс) %s.csv' % (config.days[datetime.datetime.today().weekday()]), newline='') as csvfile:
             reader = csv.reader(csvfile, delimiter=';')
             shelude = 'День недели: %s\n' % (config.days[datetime.datetime.today().weekday()])
@@ -30,7 +30,7 @@ async def on_chat_message(msg):
                 shelude += '%s %s %s %s\n' % (row[1], row[2], row[config.kurs4[msg['text']]].replace('\n', ' / '), row[config.kurs4[msg['text']] + 1].replace('\n', ' / '))
 
         await bot.sendMessage(chat_id, text=shelude, reply_markup=keyboard_courses)
-    elif msg['text'] in config.kurs3.keys():
+    elif msg['text'].upper() in config.kurs3.keys():
         with open('Расписание (3 курс) %s.csv' % (config.days[datetime.datetime.today().weekday()]), newline='') as csvfile:
             reader = csv.reader(csvfile, delimiter=';')
             shelude = ''
@@ -38,7 +38,7 @@ async def on_chat_message(msg):
                 shelude += '%s %s %s %s\n' % (row[1], row[2], row[config.kurs3[msg['text']]].replace('\n', ' / '), row[config.kurs3[msg['text']] + 1].replace('\n', ' / '))
 
         await bot.sendMessage(chat_id, text=shelude, reply_markup=keyboard_courses)
-    elif msg['text'] in config.kurs2.keys():
+    elif msg['text'].upper() in config.kurs2.keys():
         with open('Расписание (2 курс) %s.csv' % (config.days[datetime.datetime.today().weekday()]), newline='') as csvfile:
             reader = csv.reader(csvfile, delimiter=';')
             shelude = ''
@@ -46,7 +46,7 @@ async def on_chat_message(msg):
                 shelude += '%s %s %s %s\n' % (row[1], row[2], row[config.kurs2[msg['text']]].replace('\n', ' / '), row[config.kurs2[msg['text']] + 1].replace('\n', ' / '))
 
         await bot.sendMessage(chat_id, text=shelude, reply_markup=keyboard_courses)
-    elif msg['text'] in config.kurs1.keys():
+    elif msg['text'].upper() in config.kurs1.keys():
         with open('Расписание (1 курс) %s.csv' % (config.days[datetime.datetime.today().weekday()]), newline='') as csvfile:
             reader = csv.reader(csvfile, delimiter=';')
             shelude = ''
