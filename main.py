@@ -17,61 +17,82 @@ def chunks(lst, chunk_count):
 
 async def on_chat_message(msg):
     content_type, chat_type, chat_id = telepot.glance(msg)
-    print('Chat:', content_type, chat_type, chat_id)
+    print('Chat:', content_type, chat_type, msg['from']['username'], msg['text'], datetime.datetime.fromtimestamp(msg['date']).strftime('%Y-%m-%d %H:%M:%S')
+          )
     keyboard_courses = ReplyKeyboardMarkup(keyboard=[
         config.courses
     ], resize_keyboard=True)
     if content_type != 'text':
         return
     if msg['text'].upper() in config.kurs4.keys():
-        with open('csv/Расписание (4 курс) %s.csv' % (config.days[datetime.datetime.today().weekday()]), newline='') as csvfile:
-            reader = csv.reader(csvfile, delimiter=';')
-            lessons = msg['text'] + '\n'
-            aud = '\n'
-            next(csvfile)
-            for row in reader:
-                lessons += '%s\n' % (row[config.kurs4[msg['text']]].replace('\n', ' / '))
-                aud += '%s\n' % (row[config.kurs4[msg['text']] + 1].replace('\n', ' / '))
+        try:
+            with open('csv/Расписание (4 курс) %s.csv' % (config.days[datetime.datetime.today().weekday()]), newline='') as csvfile:
+                reader = csv.reader(csvfile, delimiter=';')
+                lessons = msg['text'] + '\n'
+                aud = '\n'
+                next(csvfile)
+                for row in reader:
+                    lessons += '%s\n' % (row[config.kurs4[msg['text']]].replace('\n', ' / '))
+                    aud += '%s\n' % (row[config.kurs4[msg['text']] + 1].replace('\n', ' / '))
             img.render([lessons, aud], (85, 85, 85), chat_id)
-        await bot.sendPhoto(chat_id, open('img/%s.png' % chat_id, 'rb'), reply_markup=keyboard_courses)
-       #await bot.sendMessage(chat_id, text=lessons, reply_markup=keyboard_courses)
+            await bot.sendPhoto(chat_id, open('img/%s.png' % chat_id, 'rb'), reply_markup=keyboard_courses)
+        except Exception as e:
+            print(e)
+            await bot.sendMessage(chat_id, text='Расписание не доступно', reply_markup=keyboard_courses)
+
+       # await bot.sendMessage(chat_id, text=lessons, reply_markup=keyboard_courses)
     elif msg['text'].upper() in config.kurs3.keys():
-        with open('csv/Расписание (3 курс) %s.csv' % (config.days[datetime.datetime.today().weekday()]), newline='') as csvfile:
-            reader = csv.reader(csvfile, delimiter=';')
-            lessons = msg['text'] + '\n'
-            aud = '\n'
-            next(csvfile)
-            for row in reader:
-                lessons += '%s\n' % (row[config.kurs3[msg['text']]].replace('\n', ' / '))
-                aud += '%s\n' % (row[config.kurs3[msg['text']] + 1].replace('\n', ' / '))
+        try:
+            with open('csv/Расписание (3 курс) %s.csv' % (config.days[datetime.datetime.today().weekday()]), newline='') as csvfile:
+                reader = csv.reader(csvfile, delimiter=';')
+                lessons = msg['text'] + '\n'
+                aud = '\n'
+                next(csvfile)
+                for row in reader:
+                    lessons += '%s\n' % (row[config.kurs3[msg['text']]].replace('\n', ' / '))
+                    aud += '%s\n' % (row[config.kurs3[msg['text']] + 1].replace('\n', ' / '))
             img.render([lessons, aud], (85, 85, 85), chat_id)
-        await bot.sendPhoto(chat_id, open('img/%s.png' % chat_id, 'rb'), reply_markup=keyboard_courses)
+            await bot.sendPhoto(chat_id, open('img/%s.png' % chat_id, 'rb'), reply_markup=keyboard_courses)
+        except Exception as e:
+            print(e)
+            await bot.sendMessage(chat_id, text='Расписание не доступно', reply_markup=keyboard_courses)
+
         # await bot.sendMessage(chat_id, text=shelude, reply_markup=keyboard_courses)
 
     elif msg['text'].upper() in config.kurs2.keys():
-        with open('csv/Расписание (2 курс) %s.csv' % (config.days[datetime.datetime.today().weekday()]), newline='') as csvfile:
-            reader = csv.reader(csvfile, delimiter=';')
-            lessons = msg['text'] + '\n'
-            aud = '\n'
-            next(csvfile)
-            for row in reader:
-                lessons += '%s\n' % (row[config.kurs2[msg['text']]].replace('\n', ' / '))
-                aud += '%s\n' % (row[config.kurs2[msg['text']] + 1].replace('\n', ' / '))
+        try:
+            with open('csv/Расписание (2 курс) %s.csv' % (config.days[datetime.datetime.today().weekday()]), newline='') as csvfile:
+                reader = csv.reader(csvfile, delimiter=';')
+                lessons = msg['text'] + '\n'
+                aud = '\n'
+                next(csvfile)
+                for row in reader:
+                    lessons += '%s\n' % (row[config.kurs2[msg['text']]].replace('\n', ' / '))
+                    aud += '%s\n' % (row[config.kurs2[msg['text']] + 1].replace('\n', ' / '))
             img.render([lessons, aud], (85, 85, 85), chat_id)
-        await bot.sendPhoto(chat_id, open('img/%s.png' % chat_id, 'rb'), reply_markup=keyboard_courses)
-        # await bot.sendMessage(chat_id, text=shelude, reply_markup=keyboard_courses)
+            await bot.sendPhoto(chat_id, open('img/%s.png' % chat_id, 'rb'), reply_markup=keyboard_courses)
+        except Exception as e:
+            print(e)
+            await bot.sendMessage(chat_id, text='Расписание не доступно', reply_markup=keyboard_courses)
+
+            # await bot.sendMessage(chat_id, text=shelude, reply_markup=keyboard_courses)
 
     elif msg['text'].upper() in config.kurs1.keys():
-        with open('csv/Расписание (1 курс) %s.csv' % (config.days[datetime.datetime.today().weekday()]), newline='') as csvfile:
-            reader = csv.reader(csvfile, delimiter=';')
-            lessons = msg['text'] + '\n'
-            aud = '\n'
-            next(csvfile)
-            for row in reader:
-                lessons += '%s\n' % (row[config.kurs1[msg['text']]].replace('\n', ' / '))
-                aud += '%s\n' % (row[config.kurs1[msg['text']] + 1].replace('\n', ' / '))
+        try:
+            with open('csv/Расписание (1 курс) %s.csv' % (config.days[datetime.datetime.today().weekday()]), newline='') as csvfile:
+                reader = csv.reader(csvfile, delimiter=';')
+                lessons = msg['text'] + '\n'
+                aud = '\n'
+                next(csvfile)
+                for row in reader:
+                    lessons += '%s\n' % (row[config.kurs1[msg['text']]].replace('\n', ' / '))
+                    aud += '%s\n' % (row[config.kurs1[msg['text']] + 1].replace('\n', ' / '))
             img.render([lessons, aud], (85, 85, 85), chat_id)
-        await bot.sendPhoto(chat_id, open('img/%s.png' % chat_id, 'rb'), reply_markup=keyboard_courses)
+            await bot.sendPhoto(chat_id, open('img/%s.png' % chat_id, 'rb'), reply_markup=keyboard_courses)
+        except Exception as e:
+            print(e)
+            await bot.sendMessage(chat_id, text='Расписание не доступно', reply_markup=keyboard_courses)
+
         # await bot.sendMessage(chat_id, text=shelude, reply_markup=keyboard_courses)
 
     elif msg['text'] in config.courses:
