@@ -42,6 +42,6 @@ Thumbs.db
 
 
 test\.png
-
-img/
 !img/table\.png
+img/
+
