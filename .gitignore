@@ -40,6 +40,8 @@ Thumbs.db
 *.csv
 *.sublime*
 
-img/
 
 test\.png
+
+img/
+!img/table\.png
