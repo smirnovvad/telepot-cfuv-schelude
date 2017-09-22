@@ -1,6 +1,6 @@
 import csv
 import img
-import datetime
+import textwrap
 
 courses = ['1 курс', '2 курс', '3 курс', '4 курс']
 kurs4 = {'4КСК7': 3, '4ПКС8': 5, '4АК4': 7, '4Т7': 9, '4Д2': 11, '4ПП2': 13}
@@ -11,11 +11,13 @@ msg = {'text': ''}
 msg['text'] = '4ПКС8'
 print(msg['text'][0])
 xy = [0, 0]
-with open('Расписание (4 курс) %s.csv' % (days[0]), newline='') as csvfile:
+with open('csv/Расписание (4 курс) %s.csv' % (days[0]), newline='') as csvfile:
     reader = csv.reader(csvfile, delimiter=';')
-    shelude = ''
+    lessons = msg['text'] + '\n'
+    aud = '\n'
+    next(csvfile)
     for row in reader:
-        shelude += '%s %s %s %s\n' % (row[1], row[2], row[kurs4[msg['text']]].replace('\n', ' / '), row[kurs4[msg['text']] + 1].replace('\n', ' / '))
+        lessons += '%s\n' % (row[kurs4[msg['text']]].replace('\n', ' / '))
+        aud += '%s\n' % (row[kurs4[msg['text']] + 1].replace('\n', ' / '))
        #draw.text(xy, '%s %s %s %s' % (row[1], row[2], row[kurs4[msg['text']]].replace('\n', ' / '), row[kurs4[msg['text']] + 1].replace('\n', ' / ')), (0, 0, 0), font=font)
-print(shelude)
-img.render([0, 0], shelude, (0, 0, 0))
+img.render([lessons, aud], (85, 85, 85), 'test')
