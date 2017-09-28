@@ -39,6 +39,8 @@ class SheluderStarter(telepot.aio.helper.ChatHandler):
 
     async def on_chat_message(self, msg):
         content_type, chat_type, chat_id = glance(msg)
+        print('Chat:', content_type, chat_type, msg['text'], datetime.datetime.fromtimestamp(msg['date']).strftime('%Y-%m-%d %H:%M:%S')
+              )
         await self.sender.sendMessage(
             'Привет, выбери курс',
             reply_markup=InlineKeyboardMarkup(
