@@ -12,7 +12,7 @@ import img
 from openpyxl import load_workbook
 
 
-def render(group,day):
+def render(group, day):
     try:
         wb = load_workbook('xlsx/%s.xlsx' % (day))
         ws = wb['Расписание (%s курс)' % (group[0])]
@@ -29,11 +29,13 @@ def render(group,day):
                 aud += '\n'
             else:
                 aud += ws.cell(row=x, column=config.courses[group[0]][group] + 1).value.replace('\n', ' / ') + '\n'
-        img.render([lessons, aud], (85, 85, 85), group+day)
+        img.render([lessons, aud], (85, 85, 85), group + day)
     except Exception as e:
         print(e)
 
+
 class SheluderStarter(telepot.aio.helper.ChatHandler):
+
     def __init__(self, *args, **kwargs):
         super(SheluderStarter, self).__init__(*args, **kwargs)
 
@@ -55,8 +57,8 @@ class SheluderStarter(telepot.aio.helper.ChatHandler):
         self.close()  # let Quizzer take over
 
 
-
 class Sheluder(telepot.aio.helper.CallbackQueryOriginHandler):
+
     def __init__(self, *args, **kwargs):
         super(Sheluder, self).__init__(*args, **kwargs)
         self._course = 0
@@ -65,45 +67,45 @@ class Sheluder(telepot.aio.helper.CallbackQueryOriginHandler):
 
     async def _show_groups(self, groups):
         await self.editor.editMessageText('Выбери группу',
-            reply_markup=InlineKeyboardMarkup(
-                inline_keyboard=
-                    list(map(lambda c: [InlineKeyboardButton(text=str(c), callback_data=str(c))], list(groups.keys())))
+                                          reply_markup=InlineKeyboardMarkup(
+                                              inline_keyboard=list(map(lambda c: [InlineKeyboardButton(
+                                                  text=str(c), callback_data=str(c))], list(groups.keys())))
 
-            )
-        )
+                                          )
+                                          )
 
     async def _show_days(self, days):
         await self.editor.editMessageText('Выбери день недели',
-            reply_markup=InlineKeyboardMarkup(
-                inline_keyboard=
-                    list(map(lambda c: [InlineKeyboardButton(text=str(c), callback_data=str(c))], list(days.values())))
+                                          reply_markup=InlineKeyboardMarkup(
+                                              inline_keyboard=list(map(lambda c: [InlineKeyboardButton(
+                                                  text=str(c), callback_data=str(c))], list(days.values())))
 
-            )
-        )
+                                          )
+                                          )
 
     async def on_callback_query(self, msg):
         query_id, from_id, query_data = glance(msg, flavor='callback_query')
-        self.sender = telepot.aio.helper.Sender(self.bot,from_id)
+        self.sender = telepot.aio.helper.Sender(self.bot, from_id)
         if query_data in config.courses:
             self._course = query_data
             await self._show_groups(config.courses[self._course])
 
         elif query_data in config.days.values():
             self._day = query_data
-            render(self._group,self._day)
-            print(self._group,self._day)
-            await self.sender.sendPhoto(open('img/%s.png' % (self._group+self._day), 'rb'))
+            render(self._group, self._day)
+            print(self._group, self._day, datetime.datetime.today())
+            await self.sender.sendPhoto(open('img/%s.png' % (self._group + self._day), 'rb'))
             await self.sender.sendMessage(
-            'Привет, выбери курс',
-            reply_markup=InlineKeyboardMarkup(
-                inline_keyboard=[[
-                    InlineKeyboardButton(text='1 Курс', callback_data='1'),
-                    InlineKeyboardButton(text='2 Курс', callback_data='2'),
-                    InlineKeyboardButton(text='3 Курс', callback_data='3'),
-                    InlineKeyboardButton(text='4 Курс', callback_data='4'),
-                ]]
+                'Привет, выбери курс',
+                reply_markup=InlineKeyboardMarkup(
+                    inline_keyboard=[[
+                        InlineKeyboardButton(text='1 Курс', callback_data='1'),
+                        InlineKeyboardButton(text='2 Курс', callback_data='2'),
+                        InlineKeyboardButton(text='3 Курс', callback_data='3'),
+                        InlineKeyboardButton(text='4 Курс', callback_data='4'),
+                    ]]
+                )
             )
-        )
 
         elif query_data in config.courses[self._course]:
             print(query_data)
