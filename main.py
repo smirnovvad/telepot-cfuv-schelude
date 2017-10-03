@@ -34,33 +34,43 @@ def render(group, day):
         print(e)
 
 
-class SheluderStarter(telepot.aio.helper.ChatHandler):
+class ScheluderStarter(telepot.aio.helper.ChatHandler):
 
     def __init__(self, *args, **kwargs):
-        super(SheluderStarter, self).__init__(*args, **kwargs)
+        super(ScheluderStarter, self).__init__(*args, **kwargs)
 
     async def on_chat_message(self, msg):
         content_type, chat_type, chat_id = glance(msg)
-        print('Chat:', content_type, chat_type, msg['text'], datetime.datetime.fromtimestamp(msg['date']).strftime('%Y-%m-%d %H:%M:%S')
-              )
-        await self.sender.sendMessage(
-            'Привет, выбери курс',
-            reply_markup=InlineKeyboardMarkup(
-                inline_keyboard=[[
-                    InlineKeyboardButton(text='1 Курс', callback_data='1'),
-                    InlineKeyboardButton(text='2 Курс', callback_data='2'),
-                    InlineKeyboardButton(text='3 Курс', callback_data='3'),
-                    InlineKeyboardButton(text='4 Курс', callback_data='4'),
-                ]]
+
+        if msg['from']['id'] in config.admins and content_type == 'document' and 'xlsx' in msg['document']['file_name']:
+            if any(x.lower() in msg['document']['file_name'] for x in config.days.values()):
+                print(msg['document']['file_name'])
+                for day in config.days.values():
+                    if day.lower() in msg['document']['file_name']:
+                        await bot.download_file(msg['document']['file_id'], 'xlsx/' + day[:1].upper() + day[1:] + '.xlsx')
+                        await self.sender.sendMessage(
+                            'Файл сохранен как ' + day,
+                        )
+        if content_type == 'text':
+            print('Chat:', content_type, chat_type, msg['text'], msg['from'], datetime.datetime.fromtimestamp(msg['date']).strftime('%Y-%m-%d %H:%M:%S'))
+            await self.sender.sendMessage(
+                'Привет, выбери курс',
+                reply_markup=InlineKeyboardMarkup(
+                    inline_keyboard=[[
+                        InlineKeyboardButton(text='1 Курс', callback_data='1'),
+                        InlineKeyboardButton(text='2 Курс', callback_data='2'),
+                        InlineKeyboardButton(text='3 Курс', callback_data='3'),
+                        InlineKeyboardButton(text='4 Курс', callback_data='4'),
+                    ]]
+                )
             )
-        )
-        self.close()  # let Quizzer take over
+        self.close()
 
 
-class Sheluder(telepot.aio.helper.CallbackQueryOriginHandler):
+class Scheluder(telepot.aio.helper.CallbackQueryOriginHandler):
 
     def __init__(self, *args, **kwargs):
-        super(Sheluder, self).__init__(*args, **kwargs)
+        super(Scheluder, self).__init__(*args, **kwargs)
         self._course = 0
         self._group = ''
         self._day = ''
@@ -128,9 +138,9 @@ TOKEN = sys.argv[1]  # get token from command-line
 
 bot = telepot.aio.DelegatorBot(TOKEN, [
     pave_event_space()(
-        per_chat_id(), create_open, SheluderStarter, timeout=3),
+        per_chat_id(), create_open, ScheluderStarter, timeout=3),
     pave_event_space()(
-        per_callback_query_origin(), create_open, Sheluder, timeout=60),
+        per_callback_query_origin(), create_open, Scheluder, timeout=60),
 ])
 
 loop = asyncio.get_event_loop()
