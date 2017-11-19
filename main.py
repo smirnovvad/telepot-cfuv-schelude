@@ -7,7 +7,6 @@ from telepot.namedtuple import InlineKeyboardMarkup, InlineKeyboardButton, Reply
 from telepot.aio.delegate import (
     per_chat_id, per_callback_query_origin, create_open, pave_event_space)
 import datetime
-import config
 import apsw
 
 
